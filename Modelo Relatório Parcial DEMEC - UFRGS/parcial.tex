@@ -1,0 +1,291 @@
+% parcial.tex
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% UFRGS - DEMEC : Modelo de Relatório Parcial
+% Copyright 2015 Ricardo Leuck
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Ricardo Leuck.
+%
+% This work consists of the files parcial.tex, texto-parcial.tex,
+% crono.pdf and referencias.bib.
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	11pt,				% tamanho da fonte
+	%openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+    article,
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	%french,				% idioma adicional para hifenização
+	%spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{abntex2}
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+
+% ---
+% Pacotes de matemática
+% ---
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\numberwithin{equation}{section}		
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf,abnt-etal-list=0,abnt-etal-cite=1]{abntex2cite}	% Citações padrão ABNT
+
+% ---
+% Configurações de estilos de capítulos
+% ---
+
+\renewcommand{\ABNTEXpartfontsize}{\normalsize}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\linespread{0.95}
+% ---
+%\renewcommand*{\familydefault}{\sfdefault}
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\ttdefault}{pcr}
+% ---
+
+% ---
+% Configuração da capa
+% ---
+
+\renewcommand{\imprimircapa}{%
+	\begin{capa}%
+		\center
+		\ABNTEXchapterfont\ABNTEXchapterfontsize
+		\imprimirinstituicao
+		\vfill
+		\imprimirtitulo
+		\par
+		por
+		\par
+		\imprimirautor
+		\vfill
+		RELATÓRIO PARCIAL
+		\vfill
+		\imprimirlocal, \imprimirdata
+		\vspace*{1cm}
+	\end{capa}
+}
+
+% ---
+
+%%% -----
+%%% Formato de cabeçalho/rodapé romano nos elementos pré-textuais
+%%% -----
+
+%% Novo estilo
+\makepagestyle{estilo_pretextual} %%% escolha um nome
+  \makeevenfoot{estilo_pretextual}{}{\ABNTEXfontereduzida \normalsize \thepage}{}
+  \makeoddfoot{estilo_pretextual}{}{\ABNTEXfontereduzida \normalsize \thepage}{}
+
+%% Customiza comando \pretextual
+\renewcommand{\pretextual}{
+  \pagestyle{plain}
+  \pagenumbering{roman} %%% ou \pagenumbering{Roman}
+  \aliaspagestyle{chapter}{estilo_pretextual}% customizing chapter pagestyle
+  \pagestyle{estilo_pretextual}
+  \aliaspagestyle{cleared}{empty}
+  \aliaspagestyle{part}{estilo_pretextual}
+}
+
+\renewenvironment{resumo}[1][ ]{%
+   \PRIVATEbookmarkthis{#1}
+   \renewcommand{\abstractnamefont}{\chaptitlefont}
+   \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
+   \begin{abstract}
+  }{\end{abstract}\PRIVATEclearpageifneeded}
+
+%%% -----
+%%% Formato de paginação para elementos textuais
+%%% -----
+\makepagestyle{estilo_textual}
+  \makeevenhead{estilo_textual}{}{}{\normalsize \thepage}
+  \makeoddhead{estilo_textual}{}{}{\normalsize \thepage}
+
+\renewcommand{\textual}{
+	\pagestyle{plain}
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\aliaspagestyle{chapter}{estilo_textual}
+	\pagestyle{estilo_textual}
+	\aliaspagestyle{cleared}{empty}
+	\aliaspagestyle{part}{estilo_textual}
+}
+
+%%% -----
+%%% Sem página de divisão para anexos e apendices
+%%% -----
+
+\renewcommand{\partapendices}{%
+}
+\renewcommand{\partanexos}{%
+}
+
+%%% -----
+
+\addto\captionsbrazil{%
+	\renewcommand{\bibname}{REFER\^ENCIAS BIBLIOGR\'AFICAS}
+}
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA
+% ---
+\titulo{MODELO DE RELATÓRIO PARCIAL COM \LaTeXe ~E ABN\TeX}
+\autor{Ricardo Frederico Leuck Filho}
+\local{Porto Alegre}
+\data{março de 2015}
+\instituicao{%
+  MINISTÉRIO DA EDUCAÇÃO
+  \par
+  UNIVERSIDADE FEDERAL DO RIO GRANDE DO SUL
+  \par
+  DEPARTAMENTO DE ENGENHARIA MECÂNICA}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{0,0,50}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ---
+% Arquivo com o texto do relatório 
+% ---
+\include{texto-parcial}
+% ---
+
+% ----------------------------------------------------------
+% Finaliza a parte no bookmark do PDF
+% para que se inicie o bookmark na raiz
+% e adiciona espaço de parte no Sumário
+% ----------------------------------------------------------
+\phantompart
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{referencias}
+
+\end{document}

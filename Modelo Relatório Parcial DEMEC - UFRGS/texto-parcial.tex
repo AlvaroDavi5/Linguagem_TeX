@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TEXTO DO RELATORIO PARCIAL 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%
+%%%% OBJETIVO %%%%
+\section{Objetivo}
+
+%Implementar otimização topológica baseada em elasticidade não-local e
+%comparar com métodos apresentados na literatura.
+\begin{quote}Corresponde a responder a pergunta: O QUE tu farás como trabalho, ou ainda QUAL o tema do teu trabalho.
+\end{quote}
+
+O objetivo deste trabalho é se auto-justificar por meio da aplicação de lógica
+sinuosa e convoluta, numa tentativa de convencer a banca do mérito do trabalho.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%% JUSTIFICATIVA %%%%
+\section{Justificativa}
+
+\begin{quote}
+Deves expor aqui a relevância do tema escolhido. Corresponde a responder a
+pergunta: POR QUE vais desenvolver esse trabalho?
+\end{quote}
+
+A importância de terminar o TCC e se formar é justificada pela diferença
+entre o valor de uma bolsa de estágio e um salário de engenheiro.
+
+\begin{equation}\label{eq:mat}
+E_e = E_{min} + x_e^p(E_0 - E_{min}),~~ x \in [0,1]
+\end{equation}
+
+Um pouco de matemática sempre ajuda:
+
+\begin{equation}\label{eq:obj}
+	\begin{aligned}
+		\underset{\mathbf{x}}{\text{minimizar}} :& \quad c(\mathbf{x}) =
+			\mathbf{u}^T \mathbf{K u} =
+			\sum_{e=1}^N E_e (x_e) \mathbf{u}_e^T \mathbf{K}_0 \mathbf{u}_e\\
+		\text{sujeito a} :& \quad V(\mathbf{x})/V(\mathbf{1}) = f_v\\
+				  & \quad\mathbf{K u} = \mathbf{f}\\
+		    & \quad\mathbf{0} \leq \mathbf{x} \leq \mathbf{1}
+	\end{aligned}
+\end{equation}
+
+
+E mais um pouco:
+
+\begin{equation}\label{eq:sen}
+\frac{\partial c(\mathbf{x})}{\partial x_e} = p x_e^{p-1}(E_0-E_{min})
+\mathbf{u}^T_e \mathbf{K}_0 \mathbf{u}_e
+\end{equation}
+
+O problema descrito pelas equações \ref{eq:mat}, \ref{eq:obj} e \autoref{eq:sen}
+pode ser visto em \citeonline[cap. 1.3]{bendsoetopology}.
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%% METODOLOGIA %%%%
+\section{Metodologia}
+
+\begin{quote}
+Deves mostrar aqui os passos que serão feitos para a realização do trabalho.
+Devem ser citados os procedimentos, tais como revisão dos assuntos relacionados,
+a montagem de algum projeto, o cálculo de alguma instalação, a comparação econômica, etc.
+Corresponde a responder a pergunta: COMO vai ser feito o trabalho?
+\end{quote}
+
+O trabalho pode ser dividido nos seguintes passos:
+
+\begin{itemize}
+\item Revisão da literatura referente a otimização topológica;
+\item Formulação de uma proposta de método;
+\item Implementação do método proposto;
+\item Aplicação do método a problemas padrão;
+\item Avaliação da performance do método por comparação com resultados
+	analíticos encontrados na literatura e com resultados de métodos existentes.
+\end{itemize}
+
+Os passos serão feitos em ordem ou não.
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%% ESTÁGIO ATUAL %%%%
+\section{Estágio atual do desenvolvimento}\label{cap_crono}
+
+\begin{quote}
+Indicar o estado atual do trabalho, seguido de um cronograma semanal. Esse cronograma deve
+incluir todas as etapas do trabalho até a sua apresentação oral.
+\end{quote}
+
+Atualmente o trabalho está na etapa onde coisas precisam ser feitas (ver cronograma na \autoref{t:crono}).
+
+\begin{table}[hb]
+	\caption{\label{t:crono}Cronograma do trabalho.}
+	\center
+	\includegraphics[width=.98\textwidth]{crono.pdf}
+\end{table}

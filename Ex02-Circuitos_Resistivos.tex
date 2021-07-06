@@ -1,0 +1,167 @@
+\documentclass[a4paper]{article}
+% incusao de pacotes (nao-necessario aqui)
+\usepackage{amsmath, calc, xcolor} % biblioteca de formulas matematicas
+\usepackage[utf8]{inputenc} % leitura de caracteres unicode
+\usepackage[english]{babel} % interpretacao do idioma pt-br
+
+
+% titulo e autor
+\title{Resolução - Ex02: Circuitos Resistivos em Série e Paralelo}
+\author{por Álvaro Davi S. Alves
+	\thanks{Estudante de Engenharia da Computação}
+}
+
+
+% inicio do documento
+\begin{document}
+	\maketitle
+	Universidade Federal do Espírito Santo
+
+	\newpage
+	Intro salveee \\*
+	Olá \\
+	Quem é? \\
+
+	$\sin_\Theta = f(x)$
+
+	\begin{equation}
+		\lim_{t \rightarrow \infty}
+		\int_{a}^{t} f(x) dx
+	\end{equation}
+\end{document}
+
+% ---------------------------------------------------------------
+
+\ifnot
+% -- classe do documento --
+\documentclass[
+	% -- classe de construcao --
+		11pt, % tamanho da fonte
+		oneside, % impressao em apenas um lado
+		a4paper, % formato do papel: A4
+		article, % classe do documento: Artigo
+	% -- opcoes da classe abntex2 --
+		%chapter=TITLE, % titulos de capitulos convertidos em letras maiusculas
+		%section=TITLE, % titulos de secoes convertidos em letras maiusculas
+		%subsection=TITLE, % titulos de subsecoes convertidos em letras maiusculas
+	% -- opções do pacote babel --
+		english, % idioma adicional para hifenizacao
+		spanish, % idioma adicional para hifenizacao
+		brazil % o ultimo idioma e o principal do documento
+]{abntex2} % padrao ABNT2
+
+
+% -- incusao de pacotes --
+\usepackage[utf8]{inputenc} % codificacao do documento para leitura de caracteres unicode
+\usepackage[brazil]{babel} % interpretacao do idioma pt-br
+\usepackage{lmodern} % fonte Latin Modern
+\usepackage{indentfirst} % indenta o primeiro paragrafo de cada secao
+\usepackage{microtype} % para melhorias de justificação
+\usepackage{color} % controle das cores
+\usepackage[T1]{fontenc} % selecao de codigos de fonte
+\usepackage{minted} % destaque de cores para codigos
+\usepackage{amsmath, amsfonts, calc, xcolor} % inclusao de formulas matematicas
+\usepackage{graphicx} % inclusao de graficos
+\usepackage[brazilian, hyperpageref]{backref} % paginas de citacoes
+\usepackage[alf, abnt-etal-list=0, abnt-etal-cite=1]{abntex2cite} % citacoes padrao ABNT
+\usepackage{lastpage} % usado pela ficha catalografica
+
+
+% -- configuracoes de estilos de capitulos --
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\linespread{0.95}
+
+\renewcommand{\ABNTEXpartfontsize}{\normalsize}
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\rmdefault}{phv}
+\renewcommand{\sfdefault}{phv}
+\renewcommand{\ttdefault}{pcr}
+
+
+% -- comando para insercao de capa --
+\renewcommand{\imprimircapa}{
+	\begin{capa}
+		\center
+		\ABNTEXchapterfont\ABNTEXchapterfontsize
+		\imprimirinstituicao
+		\vfill
+		\imprimirtitulo
+		\par
+		por
+		\par
+		\imprimirautor
+		\vfill
+		RELATÓRIO PARCIAL
+		\vfill
+		\imprimirlocal, \imprimirdata
+		\vspace*{1cm}
+	\end{capa}
+}
+
+
+% -- informacoes da capa --
+\title{Resolução - Ex02: Circuitos Resistivos em Série e Paralelo}
+\author{por Álvaro Davi S. Alves
+	\thanks{Estudante de Engenharia da Computação}
+}
+\local{Goiabeiras - Vitória - ES}
+\data{março de 2015}
+\instituicao{
+	Universidade Federal do Espírito Santo
+	\par
+	Curso de Engenharia da Computação
+}
+
+
+% -- configuracoes do PDF --
+\makeatletter
+	\hypersetup{
+		%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+		pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true, % links coloridos
+		linkcolor=blue,          	% color of internal links
+		citecolor=blue,        		% color of links to bibliography
+		filecolor=magenta,
+		urlcolor=blue,
+		bookmarksdepth=4
+	}
+\makeatother
+
+
+% -- compilar o indice --
+\makeindex
+
+
+% -- inicio do documento --
+\begin{document}
+	\frenchspacing % retirar espaço extra obsoleto entre as frases
+
+	\imprimircapa
+	%\maketitle % criar o titulo
+	\phantompart % adicionar espaco para sumario
+
+	\newpage
+	Intro salveee \\*
+	Olá \\
+
+	$\sin_\Theta = f(x)$
+
+	\begin{equation}
+		\lim_{t \rightarrow \infty}
+		\int_{a}^{t} f(x) dx
+	\end{equation}
+
+	Quem é? \\
+
+	\bibliography{referencias}
+\end{document}
+\fi
